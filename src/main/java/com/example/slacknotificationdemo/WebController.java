@@ -8,7 +8,7 @@ public class WebController {
 
     @RequestMapping("/bad")
     public String brokenEndpoint(){
-        throw new RuntimeException("Something bad happended");
+        throw new RuntimeException("Something bad happened");
     }
 
 }

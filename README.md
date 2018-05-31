@@ -2,7 +2,15 @@
 
 Example of sending error level log messages to a Slack WebHook.
 
-**Note: for the Demo to work, you need to update the INSERT_YOUR_WEB_HOOK_HERE value in the logback.xml file with your Slack Incoming Webhook URL.**
+**Note: for the Demo to work, you need to update the ${SLACK_INCOMING_WEB_HOOK} value in the logback.xml file with your Slack Incoming Webhook URL.**
+i.e.  <webhookUri>https://hooks.slack.com/services/12312/234234234</webhookUri>
+
+Optionally, you can set the *SLACK_INCOMING_WEB_HOOK* environment variable instead.
+```sh
+export SLACK_INCOMING_WEB_HOOK=https://hooks.slack.com/services/12312/234234
+
+```
+**Note: by default Slack notifications will not be sent in local (non-cloud) environments, specifically when the *cloud* SPRING_PROFILES_ACTIVE is not active.**
 
 # Requirements
 
@@ -28,3 +36,10 @@ Note the generate URL
 curl -X POST --data-urlencode "payload={\"This is a line of text in a channel.\nAnd this is another line of text.\"}"" INSERT_YOUR_WEB_HOOK_URL_HERE
 ```
 
+## To test Application locally (with Slack Notifications):
+
+Set the SPRING_PROFILES_ACTIVE env variable to cloud.
+
+export SPRING_PROFILES_ACTIVE=cloud
+
+Also make sure to set the SLACK_INCOMING_WEB_HOOK variable , either via environment variable or in the logback.xml file.
