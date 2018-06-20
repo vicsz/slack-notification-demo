@@ -33,7 +33,7 @@ Note the generate URL
 ### 6 - Test the Webhook URL
 
 ```sh
-curl -X POST --data-urlencode "payload={\"This is a line of text in a channel.\nAnd this is another line of text.\"}"" INSERT_YOUR_WEB_HOOK_URL_HERE
+curl -s -d "payload={\"text\":\"Test Message\"}" INSERT_YOUR_WEB_HOOK_URL_HERE
 ```
 
 ## To test Application locally (with Slack Notifications):
